@@ -118,11 +118,11 @@ function listen(ports, callback) {
         if (err && err.code == 'EADDRINUSE')
             debug('Address in use');
         else
-            callback(port);
+            callback && callback(port);
     });
 }
 
-function connect(callback) {
+function join(callback) {
     connectToPeers(function(availablePorts) {
         listen(availablePorts, callback);
     });
@@ -153,7 +153,7 @@ exportFunction("ping", function(args, callback) {
 });
 
 exports.exportFunction = exportFunction;
-exports.connect = connect;
+exports.join = join;
 exports.invoke = invoke;
 
 exports.close = function() {

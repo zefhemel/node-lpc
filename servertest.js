@@ -10,6 +10,6 @@ lpc.exportFunction("counter", function(args, callback) {
         callback(null,  counter);
 });
 
-lpc.connect(function() {
-    console.log("Running");
+lpc.join(function() {
+    console.log("Started");
 });
